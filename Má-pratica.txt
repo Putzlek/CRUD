@@ -1,0 +1,12 @@
+
+Por que usar private UUID id = UUID.randomUUID() é ruim
+
+Usar private UUID id = UUID.randomUUID() para gerar um ID pode ser uma má prática porque:
+
+    IDs Perdidos: O ID é gerado quando o objeto é criado, mas se algo der errado antes de salvar no banco de dados, o ID será perdido e não será usado.
+
+    Dificuldade em Testar: Nos testes, fica difícil controlar o ID, pois ele muda toda vez que você cria uma nova instância.
+
+    Controle do Ciclo de Vida: O ID deve ser gerado quando a entidade é realmente salva no banco, não na criação do objeto. Isso ajuda a evitar confusões.
+
+Uma solução melhor é gerar o ID somente quando a entidade for salva, garantindo que o ID sempre esteja associado a um registro válido no banco de dados.
